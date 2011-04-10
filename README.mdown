@@ -1,0 +1,5 @@
+SCRIPTS
+=======
+
+The files in this repository are some of my simple bash scripts for automating purposes.
+Nothing that's brilliant for the good of humanity. But some things for the good of my laziness.
