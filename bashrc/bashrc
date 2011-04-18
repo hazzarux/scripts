@@ -304,8 +304,11 @@ alias apg='aptitude update && aptitude dist-upgrade && aptitude clean'
 
 ############################################################## // http://serverfault.com/questions/3743/what-useful-things-can-one-add-to-ones-bashrc //
 
+############################################################## own experiences
 
+alias ls="ls --color=auto"
 
+############################################################## // own experiences //
 
 
 
