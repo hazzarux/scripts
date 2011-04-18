@@ -1,0 +1,318 @@
+#!bash
+#
+
+########################################################
+# Copyright 2011 Yigit Ozkan.
+# Licensed under the Apache License, Version 2.0
+# http://www.apache.org/licenses/LICENSE-2.0
+########################################################
+
+# my personally optimized bashrc.
+# most of this .bashrc is originally
+# copyright (C) 2007-2011 Dan Loewenherz <dan@dlo.me>
+# (Emmanuel Rouat <emmanuel.rouat@wanadoo.fr> is to thank for a lot of this # bashrc.)
+
+############################################################## by dan loewenherz
+
+
+############################ COMMENTED OUT. Only works on mac.
+
+#if [ "$OSTYPE" > "darwin" ]; then
+#    if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+#      . `brew --prefix`/etc/profile.d/z.sh
+#    fi
+#
+#    if [ -f `brew --prefix`/etc/bash_completion ]; then
+#      . `brew --prefix`/etc/bash_completion
+#    fi
+#
+#    # Only set these if Go is installed
+#    if [ -d `brew --prefix`/Celler/go ]; then
+#        export GOROOT=`brew --cellar`/go/HEAD
+#        export GOBIN=/usr/local/bin
+#        export GOARCH=amd64
+#        export GOOS=darwin
+#    fi
+#
+#    export JAVA_HOME=$(/usr/libexec/java_home)
+#fi
+#
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+############################ COMMENTED OUT. Only works on mac. // (you can still use bash completion though!)
+
+#    _   _ _                    
+#   /_\ | (_) __ _ ___  ___ ___ 
+#  //_\\| | |/ _` / __|/ _ | __|
+# /  _  \ | | (_| \__ \  __|__ \
+# \_/ \_/_|_|\__,_|___/\___|___/
+
+
+alias l='ls --color=auto -alCF'
+alias la='ls --color=auto -FCa'
+alias ld='ls --color=auto -aCl -d * | egrep "^d"' # only subdirectories
+alias lt='ls --color=auto -alCt | head -20' # recently changed files
+
+alias md='mkdir -p'
+
+# Automatically push a new directory to the stack when changing directories by using '+' instead of cd
+# alias +='pushd'
+# not using this.
+
+# Git aliases
+# A lot of single letters. Yes, my workflow is very DVCS-centric.
+alias push='git push'
+alias s='git s'
+alias pull='git pull'
+alias ci='git ci'
+alias lg='git lg'
+alias add='git add'
+alias d='git d'
+alias dc='git dc'
+alias st='git stash'
+alias sp='git sp'
+alias pom='git pom'
+alias pum='git pum'
+alias clone='git clone'
+alias co='git co'
+alias cot='git cot'
+alias b='git b'
+alias tree='tree -Csu'
+
+# You should never need to do this, but some of us are forced to ;)
+# alias dcommit='git svn dcommit'
+# not using this
+
+# Compilation
+alias c='./configure'
+alias smi='sudo make install'
+
+#    __             _                                      _   
+#   /__\_ ____   __(_)_ __ ___  _ __  _ __ ___   ___ _ __ | |_ 
+#  /_\ | '_ \ \ / /| | '__/ _ \| '_ \| '_ ` _ \ / _ \ '_ \| __|
+# //__ | | | \ V / | | | | (_) | | | | | | | | |  __/ | | | |_ 
+# \__/ |_| |_|\_/  |_|_|  \___/|_| |_|_| |_| |_|\___|_| |_|\__|
+
+# Hide these special things in a safe file
+if [ -f $HOME/.ec2-vars ]; then
+    . $HOME/.ec2-vars
+fi
+
+# Quick access to nginx directory
+export NGINX_CONF=/usr/local/nginx/conf/sites-enabled/
+
+# Node executables. This may be outdated, I haven't used Node in a few weeks. =D
+if [ -d /usr/local/share/npm/bin ]; then
+    export PATH=$PATH:/usr/local/share/npm/bin
+fi
+
+#    ___                  _   _                 
+#   / __\_   _ _ __   ___| |_(_) ___  _ __  ___ 
+#  / _\ | | | | '_ \ / __| __| |/ _ \| '_ \/ __|
+# / /   | |_| | | | | (__| |_| | (_) | | | \__ \
+# \/     \__,_|_| |_|\___|\__|_|\___/|_| |_|___/
+
+# My little shortcut for committing files
+# git commit -m "this is a commit" ==> cim this is a commit
+function cim() {
+  command git commit -m "$*"
+}
+
+# Makes extraction easier
+function extract() {
+     if [ -f $1 ] ; then
+         case $1 in
+             *.tar.bz2)   tar xvjf $1     ;;
+             *.tar.gz)    tar xvzf $1     ;;
+             *.bz2)       bunzip2 $1      ;;
+             *.rar)       unrar x $1      ;;
+             *.gz)        gunzip $1       ;;
+             *.tar)       tar xvf $1      ;;
+             *.tbz2)      tar xvjf $1     ;;
+             *.tgz)       tar xvzf $1     ;;
+             *.zip)       unzip $1        ;;
+             *.Z)         uncompress $1   ;;
+             *.7z)        7z x $1         ;;
+             *)           echo "'$1' cannot be extracted via >extract<" ;;
+         esac
+     else
+         echo "'$1' is not a valid file"
+     fi
+}
+
+# Nice shortcut for finding files and executing commands on them
+# E.g. `fe pyc rm`
+#function fe() {
+#  find . -type f -iname '*'${1:-}'*' -exec ${2:-file} {} \;  ;
+#}
+# not using this.
+
+#    ___                       _      _   _                 
+#   / __\ ___  _ __ ___  _ __ | | ___| |_(_) ___  _ __  ___ 
+#  / /   / _ \| '_ ` _ \| '_ \| |/ _ \ __| |/ _ \| '_ \/ __|
+# / /___| (_) | | | | | | |_) | |  __/ |_| | (_) | | | \__ \
+# \____/ \___/|_| |_| |_| .__/|_|\___|\__|_|\___/|_| |_|___/
+#                       |_|           
+#
+# These are some of my faves. I also have installed the bash_completion scripts
+# from homebrew, in addition to some project-specific ones.
+#
+# * General, http://bash-completion.alioth.debian.org/
+# * Homebrew, https://github.com/mxcl/homebrew/raw/master/Library/Contributions/brew_bash_completion.sh
+# * Git, https://github.com/git/git/raw/master/contrib/completion/git-completion.bash
+# * Django, https://github.com/django/django/raw/master/extras/django_bash_completion
+# Rails doesn't have a good one.
+
+complete -A user su mail finger
+
+# Compression autocompletions
+complete -f -o default -X '*.+(zip|ZIP)'  zip
+complete -f -o default -X '!*.+(zip|ZIP)' unzip
+complete -f -o default -X '*.+(z|Z)'      compress
+complete -f -o default -X '!*.+(z|Z)'     uncompress
+complete -f -o default -X '*.+(gz|GZ)'    gzip
+complete -f -o default -X '!*.+(gz|GZ)'   gunzip tar
+complete -f -o default -X '*.+(bz2|BZ2)'  bzip2
+complete -f -o default -X '!*.+(bz2|BZ2)' bunzip2
+complete -f -o default -X '!*.+(zip|ZIP|z|Z|gz|GZ|bz2|BZ2)' extract
+
+# For these languages, only complete with corresponding filenames
+complete -f -X '!*.py' python
+complete -f -X '!*.rb' ruby
+complete -f -X '!*.pl' perl
+
+#    ___       _   _                 
+#   /___\_ __ | |_(_) ___  _ __  ___ 
+#  //  // '_ \| __| |/ _ \| '_ \/ __|
+# / \_//| |_) | |_| | (_) | | | \__ \
+# \___/ | .__/ \__|_|\___/|_| |_|___/
+#       |_|                          
+
+# Wrap lines correctly after resizing them
+shopt -s checkwinsize
+
+# Fix typos when changing into directories
+shopt -s cdspell
+
+# Check a command is in the hash table before executing it
+shopt -s checkhash
+
+# Don't waste time completing when line is empty
+shopt -s no_empty_cmd_completion
+
+# Expand filenames beginning with period
+shopt -s dotglob
+
+# globstar doesn't exist in bash 3.2
+if [ ${BASH_VERSINFO[0]} -gt 4 ]; then
+    # Set recursive globbing with **
+    shopt -s globstar
+fi
+
+# No new mail notifications
+shopt -u mailwarn
+unset MAILCHECK
+
+# let's you do things like
+# export s=/etc
+# cd s
+shopt -s cdable_vars
+
+# Use vi keybindings
+set -o vi
+
+#  _____ _              ___                           _   
+# /__   \ |__   ___    / _ \_ __ ___  _ __ ___  _ __ | |_ 
+#   / /\/ '_ \ / _ \  / /_)/ '__/ _ \| '_ ` _ \| '_ \| __|
+#  / /  | | | |  __/ / ___/| | | (_) | | | | | | |_) | |_ 
+#  \/   |_| |_|\___| \/    |_|  \___/|_| |_| |_| .__/ \__|
+#                                              |_|        
+# Last but not least.
+
+# Only use git prompt if git bash completion is installed.
+if [ -f /usr/local/etc/bash_completion.d/git-completion.bash ]; then
+    export GIT_PS1_SHOWDIRTYSTATE="true"
+    export GIT_PS1_SHOWSTASHSTATE="true"
+    export GIT_PS1_SHOWUNTRACKEDFILES="true"
+    export GIT_PS1_SHOWUPSTREAM="verbose"
+
+    PS1='$(__git_ps1 "|\e[1;33m%s\e[0m| ")\e[1;36m\W\e[0m \e[1m\$\e[0m '
+else
+    PS1='\e[1;36m\W\e[0m \e[1m\$\e[0m '
+fi
+
+############################################################## // by dan loewenherz //
+
+############################################################## http://kozgun.net/wiki/pmwiki.php?n=Linux.Bashrc
+# always prompt before overwrite
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+
+# i'm using too much 'vim', i know!
+alias :wq='exit'
+
+# ping (mostly for checking for internet)
+alias p='ping'
+alias p.google='ping www.google.com'
+
+# ps (looking for working programs)
+# alias ps.efg='ps -ef |grep' #NOT NECESSARY see next line
+alias pg='ps -aux |grep'
+
+############################################################## // http://kozgun.net/wiki/pmwiki.php?n=Linux.Bashrc //
+
+############################################################## http://serverfault.com/questions/3743/what-useful-things-can-one-add-to-ones-bashrc
+# This is GOLD for finding out what is taking so much space on your drives!
+alias diskspace="du -S | sort -n -r |more"
+
+# cd aliases
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."
+alias .....="cd ../../../.."
+
+# am I on the internet?
+alias p4='ping 4.2.2.2 -c 4'
+
+# cd into the old directory
+alias bd='cd "$OLDPWD"'
+
+# install a package and automatically respond yes to confirmation prompt
+alias ins="sudo aptitude install"
+
+# remove a package and its configuration files
+alias remp="sudo aptitude purge"
+
+# search for a package - apt-cache and aptitude search in different ways
+# so have both
+alias searchc="apt-cache search"
+alias search="aptitude search"
+alias show="aptitude show"
+
+# easily create & cd into directory
+mkcd() {
+        if [ $# != 1 ]; then
+                echo "Usage: mkcd <dir>"
+        else
+                mkdir -p $1 && cd $1
+        fi
+}
+
+# Debian update
+alias apg='aptitude update && aptitude dist-upgrade && aptitude clean'
+
+############################################################## // http://serverfault.com/questions/3743/what-useful-things-can-one-add-to-ones-bashrc //
+
+
+
+
+
+
+
+
+
+
+
+
+# end of .bashrc
