@@ -115,7 +115,7 @@ fi
 # My little shortcut for committing files
 # git commit -m "this is a commit" ==> cim this is a commit
 function cim() {
-  command git commit -m "$*"
+  command git commit -am "$*"
 }
 
 # Makes extraction easier
