@@ -10,5 +10,4 @@ bashrc
 my personal .bashrc file
 you should put this in your /home/ folder. (as .bashrc)
 
-        #todo
-* have a look at pardus .bashrc file & update this one.
+======================
