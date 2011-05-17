@@ -1,0 +1,7 @@
+Dan Loewenherz bashrc issues (tweet)
+-----------------------------
+@hazzarux For z.sh (http://goo.gl/CGdFm) & bash-completion (http://goo.gl/1lmiG), checking for existence on Linux might be diff than on Mac
+
+# not necessary
+
+################# @dwlz commented all lines out till aliases. (i ain't using z & bash completion is working on fedora without those lines.) THANKS!
