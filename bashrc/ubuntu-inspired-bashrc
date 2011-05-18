@@ -108,6 +108,7 @@ alias md='mkdir -p'
 # Git aliases
 # A lot of single letters. Yes, my workflow is very DVCS-centric.
 alias push='git push'
+alias gstat='git status'
 alias s='git s'
 alias pull='git pull'
 alias ci='git ci'
