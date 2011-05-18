@@ -140,7 +140,7 @@ alias :wq='exit'
 
 # ping (mostly for checking for internet)
 alias p='ping'
-alias p.google='ping www.google.com'
+alias google='ping www.google.com'
 
 # ps (looking for working programs)
 # alias ps.efg='ps -ef |grep' #NOT NECESSARY see next line
