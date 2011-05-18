@@ -175,6 +175,9 @@ alias show="aptitude show"
 # Debian update
 alias apg='sudo apt-get update && apt-get dist-upgrade && apt-get clean'
 
+# check external ip via command line
+alias myip="wget www.whatismyip.com/automation/n09230945.asp -O - -q"
+
 
 
 #    ___                  _   _                 
