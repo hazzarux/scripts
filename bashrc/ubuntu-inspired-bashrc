@@ -114,6 +114,7 @@ alias pull='git pull'
 alias ci='git ci'
 alias lg='git lg'
 alias add='git add'
+alias cim='git commit -a'
 alias d='git d'
 alias dc='git dc'
 alias st='git stash'
@@ -188,9 +189,9 @@ alias myip="wget www.whatismyip.com/automation/n09230945.asp -O - -q"
 
 # My little shortcut for committing files
 # git commit -m "this is a commit" ==> cim this is a commit
-function cim() {
-  command git commit -am "$*"
-}
+#function cim() {
+#  command git commit -am "$*"
+#}
 
 # Makes extraction easier
 function extract() {
