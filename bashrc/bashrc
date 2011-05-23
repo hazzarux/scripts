@@ -180,7 +180,7 @@ alias apg='sudo apt-get update && apt-get dist-upgrade && apt-get clean'
 alias myip="wget www.whatismyip.com/automation/n09230945.asp -O - -q"
 
 #The dusk alias shows disk usage of files and subdirectories in the current directory, sorted with the ones using the most disk space first. The report shows disk usage in 1K increments and the total for the directory at the top. Beware -- if you start this command from the root directory or at the top of a deeply nested directory, it could take a long time to run.
-alias dusk='du -s -k -c * | sort -rn' 
+alias dusk='du -s -k -c * | sort -rn | more' 
 
 #I tend to move around a lot on the command line. If I am working on code in a deeply nested directory, but need to go check some log files, I'll use the shell built-in pushd command to save my current directory location and popd to get back to the directory later.
 #These aliases simplify the process by entering + before changing directories, and _ to return to the directory later. You can push more than one directory on to the stack and pop them back off in reverse order. Note that I used the underscore instead of the minus sign for popd because the minus sign is a reserved symbol.
