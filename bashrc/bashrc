@@ -177,7 +177,7 @@ alias show="aptitude show"
 alias apg='sudo apt-get update && apt-get dist-upgrade && apt-get clean'
 
 # check external ip via command line
-alias myip="wget -qO- whatismyip.org"
+alias myip="wget -qO - http://myip.dk/ | egrep -m1 -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}'"
 
 #The dusk alias shows disk usage of files and subdirectories in the current directory, sorted with the ones using the most disk space first. The report shows disk usage in 1K increments and the total for the directory at the top. Beware -- if you start this command from the root directory or at the top of a deeply nested directory, it could take a long time to run.
 alias dusk='du -s -k -c * | sort -rn | more' 
