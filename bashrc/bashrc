@@ -187,6 +187,9 @@ alias dusk='du -s -k -c * | sort -rn | more'
 alias +='pushd .'
 alias _='popd' 
 
+#mirror an entire website
+alias mirror='wget -mk -E -K -w 20'
+
 
 #    ___                  _   _                 
 #   / __\_   _ _ __   ___| |_(_) ___  _ __  ___ 
