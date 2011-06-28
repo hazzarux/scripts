@@ -10,5 +10,5 @@
 # system -> preferences -> startup applications
 
 # deluge
-# run after 15 seconds in the background
+# run after in the background after 15 seconds
 sleep 15 && deluge &
