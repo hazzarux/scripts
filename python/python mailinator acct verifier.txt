@@ -1,0 +1,7 @@
+    # mailinator acct verifier, assumes it's the first link in the first email in the inbox
+    import urllib2,re
+     
+    def verify(addr) 
+            vrf = re.search((=href=)S+,urllib2.urlopen(http+addr.split(@)[1]+showmail.jspemail=+addr.split(@)[0]+&+re.search(msgid=[0-9]+,urllib2.urlopen(http+addr.split(@)[1]+maildir.jspemail=+addr.split(@)[0]).read()).group()).read().split(div id=message)[1])
+            print urllib2.urlopen(vrf.group()).read()
+    #verify(d@mailinator.com)
