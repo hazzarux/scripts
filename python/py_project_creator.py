@@ -11,7 +11,6 @@ Created on Sun Sep 11 18:33:48 2011
 """
 
 import os
-from datetime import date
 import datetime
 
 def get_dir_path(name):
@@ -50,6 +49,13 @@ def create_init(path):
     FILE.close()
     print "init file created"
     
+def create_project(src_path,name,time):
+    filename=src_path+name+".py"
+    FILE = open(filename,"w")
+    FILE.writelines("""#!/usr/bin/python2.7\n# -*- coding: utf-8 -*-\n\n\n\n\"\"\"\n"""+"-- "+name+".py --\nCreated on "+time+"\n\n@licence: GNU GPL v3+\n@author: Yigit Ozkan\n\"\"\"\n\n\ndef main():\n"+"    \n\nif __name__ == '__main__':\n"+"    main()")
+    print "main file created"
+    
+    
     
 def main():
     project_name=raw_input('Enter project name: ')
@@ -60,6 +66,10 @@ def main():
     create_readme(folder,project_name,creation_time)
     src_path=create_src(folder)
     create_init(src_path)
+    create_project(src_path,project_name,creation_time)
+    
+    
+    
     
 
 if __name__ == '__main__':
