@@ -30,7 +30,7 @@ def check_create_dir(name):
 def create_readme(folder, name, time):
     filename=folder+"README.md"
     FILE = open(filename,"w")
-    FILE.writelines("-- "+name+".py --\nCreated on "+time+"\n@licence: GNU GPL v3+\n@author: Yigit Ozkan < yigitozkan2804@gmail.com >")
+    FILE.writelines(name+".py\n==\n\nCreated on "+time+"\n\n@licence: GNU GPL v3+\n\n@author: Yigit Ozkan < yigitozkan2804@gmail.com >")
     FILE.close()
     print "readme created"
 
