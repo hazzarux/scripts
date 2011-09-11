@@ -30,7 +30,7 @@ def check_create_dir(name):
 def create_readme(folder, name, time):
     filename=folder+"README.md"
     FILE = open(filename,"w")
-    FILE.writelines("-- "+name+".py --\nCreated on "+time+"\n@licence: GNU GPL v3+\n@author: Yigit Ozkan")
+    FILE.writelines("-- "+name+".py --\nCreated on "+time+"\n@licence: GNU GPL v3+\n@author: Yigit Ozkan < yigitozkan2804@gmail.com >")
     FILE.close()
     print "readme created"
 
@@ -52,7 +52,7 @@ def create_init(path):
 def create_project(src_path,name,time):
     filename=src_path+name+".py"
     FILE = open(filename,"w")
-    FILE.writelines("""#!/usr/bin/python2.7\n# -*- coding: utf-8 -*-\n\n\n\n\"\"\"\n"""+"-- "+name+".py --\nCreated on "+time+"\n\n@licence: GNU GPL v3+\n@author: Yigit Ozkan\n\"\"\"\n\n\ndef main():\n"+"    \n\nif __name__ == '__main__':\n"+"    main()")
+    FILE.writelines("""#!/usr/bin/python2.7\n# -*- coding: utf-8 -*-\n\n\n\n\"\"\"\n"""+"-- "+name+".py --\nCreated on "+time+"\n\n@licence: GNU GPL v3+\n@author: Yigit Ozkan < yigitozkan2804@gmail.com >\n\"\"\"\n\n\ndef main():\n"+"    \n\nif __name__ == '__main__':\n"+"    main()")
     print "main file created"
     
     
