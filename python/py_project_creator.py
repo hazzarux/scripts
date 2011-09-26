@@ -15,7 +15,6 @@ import datetime
 
 def get_dir_path(name):
     home_dir=os.getenv("HOME")
-    home_dir = os.getenv("HOME")
     name = home_dir+'/'+name+'/'
     print "directory path is: "+name
     return name
