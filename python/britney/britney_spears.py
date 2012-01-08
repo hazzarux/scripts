@@ -18,7 +18,6 @@ for elem in soup.findAll('h5','lyrics'):
       content = content.split()
       content.pop(0)
       content = ' '.join(content)
-      if content[0].capitalize() =='I':
+      if content[0].capitalize() =='I': #I has to be capital cause we capitalized content[0]
         result_file.write(content)
         result_file.write('\n')
-
