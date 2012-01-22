@@ -1,4 +1,5 @@
-#!/bin/sh
+#! /usr/bin/env bash
+
 
 # creates a backup of the htdocs directory
 # ----------------------------------------

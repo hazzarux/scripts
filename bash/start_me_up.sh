@@ -1,4 +1,5 @@
-#!/bin/bash
+#! /usr/bin/env bash
+
 
 ########################################################
 # Copyright 2011 Yigit Ozkan.
