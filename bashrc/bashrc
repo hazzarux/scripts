@@ -170,7 +170,7 @@ alias remp="sudo apt-get purge"
 # search for a package - apt-cache and aptitude search in different ways
 # so have both
 alias search="apt-cache search"
-alias searchc="aptitude search"
+#alias searchc="aptitude search"
 alias show="aptitude show"
 
 # Debian update
