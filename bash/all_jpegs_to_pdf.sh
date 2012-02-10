@@ -24,7 +24,7 @@ fname="${PWD##*/}"
 fname="${fname}.pdf"
 
 echo "Creating first pdf..."
-convert -density 300 *.jpg "$fname"
+convert -density 600 *.jpg "$fname"
 echo "Creating 2-up'ed pdf..."
 pdfnup "$fname" --nup 2x1 --outfile "$fname"
 echo "All done, captain!"
