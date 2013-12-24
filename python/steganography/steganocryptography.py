@@ -16,11 +16,17 @@ Y = "steganomoon.png" #stepic works better with png files!
 
 
 def create_encoded_image(input,message,output):
+    '''
+    creates an encoded image (output file)
+    '''
     i = Image.open(input)
     i2 = stepic.encode(i,message)
     i2.save(output),
 
 def decode_message(file):
+    '''
+    returns the message in the file
+    '''
     i = Image.open(file)
     data = stepic.decode(i)
     msg = data.decode()
