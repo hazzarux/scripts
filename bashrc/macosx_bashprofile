@@ -119,6 +119,13 @@ export PS2="\[$ORANGE\]→ \[$RESET\]"
 
 
 ### Misc
-
+export -n PS1
+export DOCKER_HOST=tcp://192.168.59.103:2375
 # Only show the current directory's name in the tab 
 export PROMPT_COMMAND='echo -ne "\033]0;${PWD##*/}\007"'
+
+alias pyyy="virtualenv --python=`which python3` env && . env/bin/activate"
+alias gpl="git pull"
+alias gna="cd ~/Dropbox/KUL/Bach1_informatica/Semester_2/GNA/Labos"
+alias ydl='youtube-dl -i --no-warnings -x --audio-format "mp3" -o "%(title)s.%(ext)s"'
+
