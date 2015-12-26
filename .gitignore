@@ -1,1 +1,4 @@
 .idea/
+.metadata/
+python/csv_operations/.project
+python/csv_operations/.pydevproject
