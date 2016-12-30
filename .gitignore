@@ -2,3 +2,6 @@
 .metadata/
 python/csv_operations/.project
 python/csv_operations/.pydevproject
+*.project
+*.pydevproject
+*.csv
